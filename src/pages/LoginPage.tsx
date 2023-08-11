@@ -1,6 +1,6 @@
 import style from "../styles/pages/Auth.module.scss";
 import bind from "../styles/cx";
-import AuthForm from "../components/ Auth/AuthForm";
+import AuthForm from "../components/Auth/AuthForm";
 
 const cx = bind(style);
 
