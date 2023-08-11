@@ -49,7 +49,6 @@ export const useDeleteAllToDo = () => {
       alert("전체 To Do List 삭제에 실패하였습니다.");
     },
     onSuccess: () => {
-      alert("전체 To Do List가 삭제되었습니다.");
       queryClient.invalidateQueries("todos");
     },
   });

@@ -21,7 +21,6 @@ export const useSignUpUser = () => {
         alert("회원가입에 실패하셨습니다.");
       },
       onSuccess: () => {
-        alert("회원가입에 성공하셨습니다.");
         navigate("/");
       },
     }
@@ -41,7 +40,6 @@ export const useLogInUser = () => {
         alert("로그인에 실패하였습니다.");
       },
       onSuccess: () => {
-        alert("로그인에 성공하셨습니다.");
         navigate("/main");
       },
     }

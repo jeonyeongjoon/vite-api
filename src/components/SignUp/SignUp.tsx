@@ -34,12 +34,12 @@ function SignUp() {
 
   return (
     <div className={cx(style.SignBox)}>
-      <h1>SignUp</h1>
+      <h1>회원가입</h1>
       <div className={style.SignInputWrapper}>
         <input
           name="email"
           type="text"
-          placeholder="email을 입력해주세요"
+          placeholder="이메일을 입력해주세요"
           className={cx(style.SignInput)}
           value={inputs.email || ""}
           onChange={handleInputChange}
@@ -47,7 +47,7 @@ function SignUp() {
         <input
           name="password"
           type="password"
-          placeholder="password를 입력해주세요"
+          placeholder="비밀번호를 입력해주세요"
           className={cx(style.SignInput)}
           value={inputs.password || ""}
           onChange={handleInputChange}
@@ -58,7 +58,7 @@ function SignUp() {
         disabled={buttonDisabled}
         className={cx(style.SignButton)}
       >
-        SignUp
+        회원가입
       </button>
       <div className={cx(style.NotAccountWrapper)}>
         <p>계정이 있다면</p>

@@ -35,6 +35,11 @@
     align-items: center;
     height: 100%;
 
+    > button {
+      background-color: white;
+      padding: 0;
+    }
+
     > p {
       word-break: break-all;
       margin: 0;

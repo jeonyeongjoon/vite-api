@@ -34,12 +34,12 @@ function Login() {
 
   return (
     <div className={cx(style.LoginBox)}>
-      <h1>LOGIN</h1>
+      <h1>로그인</h1>
       <div className={style.LoginInputWrapper}>
         <input
           name="email"
           type="text"
-          placeholder="email을 입력해주세요"
+          placeholder="이메일을 입력해주세요"
           className={cx(style.LoginInput)}
           value={inputs.email || ""}
           onChange={handleInputChange}
@@ -47,7 +47,7 @@ function Login() {
         <input
           name="password"
           type="password"
-          placeholder="password를 입력해주세요"
+          placeholder="비밀번호를 입력해주세요"
           className={cx(style.LoginInput)}
           value={inputs.password || ""}
           onChange={handleInputChange}
@@ -58,7 +58,7 @@ function Login() {
         disabled={buttonDisabled}
         className={cx(style.LoginButton)}
       >
-        LOGIN
+        로그인
       </button>
       <div className={cx(style.NotAccountWrapper)}>
         <p>계정이 없다면</p>
