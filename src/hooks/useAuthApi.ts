@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserInfoStore } from "../store";
 
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+axios.defaults.withCredentials = true;
 
 export const useSignUpUser = () => {
   const navigate = useNavigate();
@@ -32,13 +33,7 @@ export const useLogInUser = () => {
 
   return useMutation(
     async (param: UserAccount) => {
-      await axios.post(
-        `${BASE_URL}/api/user/login`,
-        { ...param },
-        {
-          withCredentials: true,
-        }
-      );
+      await axios.post(`${BASE_URL}/api/user/login`, { ...param });
     },
     {
       onError: (error) => {
@@ -58,9 +53,7 @@ export const useSignOutUser = () => {
 
   return useMutation(
     async () => {
-      await axios.get(`${BASE_URL}/api/user/logout`, {
-        withCredentials: true,
-      });
+      await axios.get(`${BASE_URL}/api/user/logout`);
     },
     {
       onError: (error) => console.log(error),
@@ -75,9 +68,7 @@ export const useUserInfo = () => {
   useQuery(
     ["userInfo"],
     async () => {
-      const response = await axios.get<UserInfo>(`${BASE_URL}/api/user`, {
-        withCredentials: true,
-      });
+      const response = await axios.get<UserInfo>(`${BASE_URL}/api/user`);
       return response.data;
     },
     {
