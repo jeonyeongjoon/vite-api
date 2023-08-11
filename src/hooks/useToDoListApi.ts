@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AddToDoItem, ModifyToDoItem, ToDoListItem } from "../types/ToDo";
+import type { AddToDoItem, ModifyToDoItem, ToDoListItem } from "../types/ToDo";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;

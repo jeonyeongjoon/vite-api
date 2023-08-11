@@ -1,6 +1,6 @@
 import style from "./style.module.scss";
 import bind from "../../styles/cx";
-import { ToDoListItem } from "../../types/ToDo";
+import type { ToDoListItem } from "../../types/ToDo";
 import { useState } from "react";
 import ModifyInput from "./ModifyInput";
 import DropDown from "../DropDown/DropDown";
