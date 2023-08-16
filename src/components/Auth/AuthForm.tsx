@@ -2,6 +2,7 @@ import style from "./style.module.scss";
 import bind from "../../styles/cx";
 import { useInputStore } from "../../store";
 import { useState } from "react";
+import type { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLogInUser, useSignUpUser } from "../../hooks/useAuthApi";
 
@@ -19,7 +20,7 @@ function AuthForm({ type }: AuthClassifications) {
   const { mutate: logInUser } = useLogInUser();
   const { mutate: signUpUser } = useSignUpUser();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInput(name, value);
 
