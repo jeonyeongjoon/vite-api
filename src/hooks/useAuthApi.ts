@@ -1,18 +1,15 @@
 import axios from "axios";
-import type { UserAccount, UserInfo } from "../types/user";
+import type { UserAccount, UserInfo } from "../types/User";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useUserInfoStore } from "../store";
-
-const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
-axios.defaults.withCredentials = true;
 
 export const useSignUpUser = () => {
   const navigate = useNavigate();
 
   return useMutation(
     async (param: UserAccount) =>
-      await axios.post(`${BASE_URL}/api/user`, {
+      await axios.post(`/user`, {
         ...param,
       }),
     {
@@ -31,7 +28,7 @@ export const useLogInUser = () => {
 
   return useMutation(
     async (param: UserAccount) => {
-      await axios.post(`${BASE_URL}/api/user/login`, { ...param });
+      await axios.post(`/user/login`, { ...param });
     },
     {
       onError: () => {
@@ -49,7 +46,7 @@ export const useSignOutUser = () => {
 
   return useMutation(
     async () => {
-      await axios.get(`${BASE_URL}/api/user/logout`);
+      await axios.get(`/user/logout`);
     },
     {
       onError: (error) => console.log(error),
@@ -64,7 +61,7 @@ export const useUserInfo = () => {
   useQuery(
     ["userInfo"],
     async () => {
-      const response = await axios.get<UserInfo>(`${BASE_URL}/api/user`);
+      const response = await axios.get<UserInfo>(`/user`);
       return response.data;
     },
     {

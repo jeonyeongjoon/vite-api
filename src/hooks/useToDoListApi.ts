@@ -1,16 +1,13 @@
 import axios from "axios";
-import type { AddToDoItem, ModifyToDoItem, ToDoListItem } from "../types/todo";
+import type { AddToDoItem, ModifyToDoItem, ToDoListItem } from "../types/toDo";
 import { useMutation, useQuery, useQueryClient } from "react-query";
-
-const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
-axios.defaults.withCredentials = true;
 
 export const useAddToDoItem = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
     async (param: AddToDoItem) =>
-      await axios.post(`${BASE_URL}/api/todos`, {
+      await axios.post(`/todos`, {
         ...param,
       }),
     {
@@ -28,7 +25,7 @@ export const useToDoListGet = () => {
   const { data, error } = useQuery(
     ["todos"],
     async () => {
-      const response = await axios.get<ToDoListItem[]>(`${BASE_URL}/api/todos`);
+      const response = await axios.get<ToDoListItem[]>(`/todos`);
       return response.data;
     },
     {
@@ -42,7 +39,7 @@ export const useToDoListGet = () => {
 export const useDeleteAllToDo = () => {
   const queryClient = useQueryClient();
 
-  return useMutation(async () => await axios.delete(`${BASE_URL}/api/todos`), {
+  return useMutation(async () => await axios.delete(`/todos`), {
     onError: () => {
       alert("전체 To Do List 삭제에 실패하였습니다.");
     },
@@ -56,8 +53,7 @@ export const useDeleteToDo = () => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    async (param: number) =>
-      await axios.delete(`${BASE_URL}/api/todos/${param}`),
+    async (param: number) => await axios.delete(`/todos/${param}`),
     {
       onError: () => {
         alert("To Do List 삭제에 실패하였습니다.");
@@ -74,7 +70,7 @@ export const useModifyToDo = () => {
 
   return useMutation(
     async (param: ModifyToDoItem) =>
-      await axios.put(`${BASE_URL}/api/todos/${param.id}`, {
+      await axios.put(`/todos/${param.id}`, {
         ...param,
       }),
     {
