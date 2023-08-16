@@ -16,12 +16,11 @@ export const useSignUpUser = () => {
         ...param,
       }),
     {
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
         alert("회원가입에 실패하셨습니다.");
       },
       onSuccess: () => {
-        navigate("/");
+        navigate("/login");
       },
     }
   );
@@ -35,12 +34,11 @@ export const useLogInUser = () => {
       await axios.post(`${BASE_URL}/api/user/login`, { ...param });
     },
     {
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
         alert("로그인에 실패하였습니다.");
       },
       onSuccess: () => {
-        navigate("/main");
+        navigate("/");
       },
     }
   );
@@ -71,7 +69,6 @@ export const useUserInfo = () => {
     },
     {
       onSuccess: (data) => {
-        console.log("!");
         const { id, email, created_at, updated_at } = data;
         setUserInfo(id, email, created_at, updated_at);
       },

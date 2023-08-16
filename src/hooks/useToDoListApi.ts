@@ -14,8 +14,7 @@ export const useAddToDoItem = () => {
         ...param,
       }),
     {
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
         alert("To Do List 작성에 실패하였습니다.");
       },
       onSuccess: () => {
@@ -44,8 +43,7 @@ export const useDeleteAllToDo = () => {
   const queryClient = useQueryClient();
 
   return useMutation(async () => await axios.delete(`${BASE_URL}/api/todos`), {
-    onError: (error) => {
-      console.log(error);
+    onError: () => {
       alert("전체 To Do List 삭제에 실패하였습니다.");
     },
     onSuccess: () => {
@@ -61,8 +59,7 @@ export const useDeleteToDo = () => {
     async (param: number) =>
       await axios.delete(`${BASE_URL}/api/todos/${param}`),
     {
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
         alert("To Do List 삭제에 실패하였습니다.");
       },
       onSuccess: () => {
@@ -81,8 +78,7 @@ export const useModifyToDo = () => {
         ...param,
       }),
     {
-      onError: (error) => {
-        console.log(error);
+      onError: () => {
         alert("To Do List 수정에 실패하였습니다.");
       },
       onSuccess: () => {
