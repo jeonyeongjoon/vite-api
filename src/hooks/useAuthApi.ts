@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { UserAccount, UserInfo } from "../types/User";
+import type { UserAccount, UserInfo } from "../types/user";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useUserInfoStore } from "../store";
